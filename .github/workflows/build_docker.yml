@@ -4,6 +4,7 @@ on:
       branches:
         - master
         - main
+        - add-template-files # ToDo: Remove this
 
 jobs:
   build_docker:
