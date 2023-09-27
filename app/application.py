@@ -17,7 +17,7 @@ app = FastStream(broker)
 to_greetings = broker.publisher("greetings")
 
 
-@broker.subscriber("names")
+@broker.subscriber("names")  # type: ignore
 async def on_names(msg: Name, logger: Logger) -> None:
     result = f"hello {msg.name}"
     greeting = Greeting(greeting=result)

@@ -12,6 +12,9 @@ dependencies = [
 
 [project.optional-dependencies]
 lint = [
+    "types-PyYAML",
+    "types-setuptools",
+    "types-ujson",
     "mypy==1.5.1",
     "black==23.9.1",
     "isort>=5",
