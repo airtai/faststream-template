@@ -17,7 +17,6 @@ lint = [
     "types-ujson",
     "mypy==1.5.1",
     "black==23.9.1",
-    "isort>=5",
     "ruff==0.0.291",
     "pyupgrade-directories",
     "bandit==1.7.5",
@@ -47,10 +46,6 @@ warn_unused_ignores = false
 disallow_incomplete_defs = true
 disallow_untyped_decorators = true
 disallow_any_unimported = false
-
-[tool.isort]
-profile = "black"
-known_first_party = ["app"]
 
 [tool.black]
 line-length = 88
