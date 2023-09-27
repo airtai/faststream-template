@@ -31,6 +31,9 @@ testing = [
 
 dev = ["app[lint,static-analysis,testing]"]
 
+[tool.pytest.ini_options]
+filterwarnings =["ignore::DeprecationWarning"]
+
 [tool.mypy]
 strict = true
 python_version = "3.8"
