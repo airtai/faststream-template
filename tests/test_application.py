@@ -1,8 +1,7 @@
 import pytest
-
 from faststream.kafka import TestKafkaBroker
 
-from app.application import Name, Greeting, broker, on_names
+from app.application import Greeting, Name, broker, on_names
 
 
 @broker.subscriber("greetings")

@@ -2,8 +2,29 @@ name: CI
 on:  [workflow_dispatch, pull_request, push]
 
 jobs:
-  build:
+  static_analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Install Dependencies and library
+        shell: bash
+        run: |
+          set -ux
+          python -m pip install --upgrade pip
+          pip install -e ".[static-analysis]"
+      - name: Run mypy
+        shell: bash
+        run: mypy app
 
+      - name: Run bandit
+        shell: bash
+        run: bandit -c pyproject.toml -r app
+
+  test:
+    needs: [static_analysis]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
