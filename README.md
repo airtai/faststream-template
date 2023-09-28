@@ -122,9 +122,9 @@ This repository has three workflows, each triggered when code is pushed:
 
 1. **Tests Workflow**: This workflow is named "Tests" and consists of two jobs. The first job runs static analysis tools `mypy` and `bandit` to identify potential issues in the codebase. The second job runs tests using `pytest` to ensure the functionality of the application. Both jobs run simultaneously to expedite the `CI` process.
 
-2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the `GitHub container registry`, making it available for deployment or other purposes.
+2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the **GitHub container registry**, making it available for deployment or other purposes.
 
-3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the `AsyncAPI` documentation is built from the specification, and the resulting documentation is deployed to `GitHub Pages`. This allows for easy access and sharing of the `AsyncAPI` documentation with the project's stakeholders.
+3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the `AsyncAPI` documentation is built from the specification, and the resulting documentation is deployed to **GitHub Pages**. This allows for easy access and sharing of the `AsyncAPI` documentation with the project's stakeholders.
 
 ---
 
