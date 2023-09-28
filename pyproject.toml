@@ -3,8 +3,6 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "app"
-version = "0.0.1"
 
 dependencies = [
     "faststream[kafka, docs]>=0.1.5",
