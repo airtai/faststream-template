@@ -5,6 +5,9 @@ on:
         - master
         - main
 
+permissions:
+  contents: write
+
 jobs:
   deploy_docs:
     name: Deploy FastStream Docs to GitHub Pages
