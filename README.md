@@ -118,6 +118,14 @@ Once you have successfully completed all the above steps, you are ready to contr
 
 This repository is equipped with GitHub Actions that automate static analysis and pytest in the CI pipeline. Even if you forget to perform any of the required steps, CI will catch any issues before merging your changes.
 
+This repository has three workflows, each triggered when code is pushed:
+
+1. **Tests Workflow**: This workflow is named "Tests" and consists of two jobs. The first job runs static analysis tools `mypy` and `bandit` to identify potential issues in the codebase. The second job runs tests using `pytest` to ensure the functionality of the application. Both jobs run simultaneously to expedite the `CI` process.
+
+2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the `GitHub container registry`, making it available for deployment or other purposes.
+
+3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the `AsyncAPI` documentation is built from the specification, and the resulting documentation is deployed to `GitHub Pages`. This allows for easy access and sharing of the `AsyncAPI` documentation with the project's stakeholders.
+
 ---
 
 Happy coding with `FastStream` Application! If you have any questions or encounter any problems, feel free to reach out to us. We appreciate your contributions and commitment to maintaining code quality.
