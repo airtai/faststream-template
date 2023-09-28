@@ -1,6 +1,6 @@
 # FastStream Application
 
-Application in this repository is developed using the `FastStream` framework. Below, you'll find a guide on how to get started, develop new features or bug fixes, and ensure the quality of your code through testing and linting, run the `FastStream` application locally, and view `AsyncAPI` documentation.
+Application in this repository is developed using the [`FastStream`](https://github.com/airtai/faststream) framework. Below, you'll find a guide on how to get started, develop new features or bug fixes, and ensure the quality of your code through testing and linting, run the [`FastStream`](https://github.com/airtai/faststream) application locally, and view [`AsyncAPI`](https://www.asyncapi.com/) documentation.
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ The application code is located in the `app/` directory. You can add new feature
 
 ## Running Tests
 
-Once you have updated tests, you can execute the tests using `pytest`:
+Once you have updated tests, you can execute the tests using [`pytest`](https://pytest.org/):
 
 ```bash
 pytest
@@ -41,7 +41,7 @@ After making changes to the code, it's essential to ensure it adheres to coding 
 
 ## Static Analysis
 
-Static analysis tools `mypy` and `bandit` can help identify potential issues in your code. To run static analysis, use the following script:
+Static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) can help identify potential issues in your code. To run static analysis, use the following script:
 
 ```bash
 ./scripts/static-analysis.sh
@@ -51,7 +51,7 @@ If there are any static analysis errors, resolve them in your code and rerun the
 
 ## Running FastStream Application Locally
 
-To run the `FastStream` application locally, follow these steps:
+To run the [`FastStream`](https://github.com/airtai/faststream) application locally, follow these steps:
 
 1. Start the Kafka Docker container locally using the provided script:
 
@@ -59,7 +59,7 @@ To run the `FastStream` application locally, follow these steps:
    ./scripts/start_kafka_broker_locally.sh
    ```
 
-2. Start the `FastStream` application with the following command:
+2. Start the [`FastStream`](https://github.com/airtai/faststream) application with the following command:
 
    ```bash
    faststream run app.application:app --workers 1
@@ -71,7 +71,7 @@ To run the `FastStream` application locally, follow these steps:
    ./scripts/subscribe_to_kafka_broker_locally.sh <topic_name>
    ```
 
-4. To stop the `FastStream` application, press `Ctrl+C`.
+4. To stop the [`FastStream`](https://github.com/airtai/faststream) application, press `Ctrl+C`.
 
 5. Finally, stop the Kafka Docker container by running the script:
 
@@ -81,19 +81,19 @@ To run the `FastStream` application locally, follow these steps:
 
 ## Viewing AsyncAPI Documentation
 
-`FastStream` framework supports `AsyncAPI` documentation. To ensure that your changes are reflected in the `AsyncAPI` documentation, follow these steps:
+[`FastStream`](https://github.com/airtai/faststream) framework supports [`AsyncAPI`](https://www.asyncapi.com/) documentation. To ensure that your changes are reflected in the [`AsyncAPI`](https://www.asyncapi.com/) documentation, follow these steps:
 
-1. Run the following command to view the `AsyncAPI` documentation:
+1. Run the following command to view the [`AsyncAPI`](https://www.asyncapi.com/) documentation:
 
    ```bash
    faststream docs serve app.application:app
    ```
 
-   This command builds the `AsyncAPI` specification file, generates `AsyncAPI` documentation based on the specification, and serves it at `localhost:8000`.
+   This command builds the [`AsyncAPI`](https://www.asyncapi.com/) specification file, generates [`AsyncAPI`](https://www.asyncapi.com/) documentation based on the specification, and serves it at `localhost:8000`.
 
-2. Open your web browser and navigate to <http://localhost:8000> to view the `AsyncAPI` documentation reflecting your changes.
+2. Open your web browser and navigate to <http://localhost:8000> to view the [`AsyncAPI`](https://www.asyncapi.com/) documentation reflecting your changes.
 
-3. To stop the `AsyncAPI` documentation server, press `Ctrl+C`.
+3. To stop the [`AsyncAPI`](https://www.asyncapi.com/) documentation server, press `Ctrl+C`.
 
 ## Contributing
 
@@ -120,12 +120,12 @@ This repository is equipped with GitHub Actions that automate static analysis an
 
 This repository has three workflows, each triggered when code is pushed:
 
-1. **Tests Workflow**: This workflow is named "Tests" and consists of two jobs. The first job runs static analysis tools `mypy` and `bandit` to identify potential issues in the codebase. The second job runs tests using `pytest` to ensure the functionality of the application. Both jobs run simultaneously to expedite the `CI` process.
+1. **Tests Workflow**: This workflow is named "Tests" and consists of two jobs. The first job runs static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) to identify potential issues in the codebase. The second job runs tests using [`pytest`](https://pytest.org/) to ensure the functionality of the application. Both jobs run simultaneously to expedite the `CI` process.
 
-2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the **GitHub container registry**, making it available for deployment or other purposes.
+2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the [**GitHub Container Registry**](https://ghcr.io), making it available for deployment or other purposes.
 
-3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the `AsyncAPI` documentation is built from the specification, and the resulting documentation is deployed to **GitHub Pages**. This allows for easy access and sharing of the `AsyncAPI` documentation with the project's stakeholders.
+3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the [`AsyncAPI`](https://www.asyncapi.com/) documentation is built from the specification, and the resulting documentation is deployed to [**GitHub Pages**](https://pages.github.com/). This allows for easy access and sharing of the [`AsyncAPI`](https://www.asyncapi.com/) documentation with the project's stakeholders.
 
 ---
 
-Happy coding with `FastStream` Application! If you have any questions or encounter any problems, feel free to reach out to us. We appreciate your contributions and commitment to maintaining code quality.
+Happy coding with [`FastStream`](https://github.com/airtai/faststream) Application! If you have any questions or encounter any problems, feel free to reach out to us. We appreciate your contributions and commitment to maintaining code quality.
