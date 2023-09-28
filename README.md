@@ -31,24 +31,6 @@ Once you have updated tests, you can execute the tests using [`pytest`](https://
 pytest
 ```
 
-## Code Linting
-
-After making changes to the code, it's essential to ensure it adheres to coding standards. We provide a script to help you with code formatting and linting. Run the following script to automatically fix linting issues:
-
-```bash
-./scripts/lint.sh
-```
-
-## Static Analysis
-
-Static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) can help identify potential issues in your code. To run static analysis, use the following script:
-
-```bash
-./scripts/static-analysis.sh
-```
-
-If there are any static analysis errors, resolve them in your code and rerun the script until it passes successfully.
-
 ## Running FastStream Application Locally
 
 To run the [`FastStream`](https://github.com/airtai/faststream) application locally, follow these steps:
@@ -78,6 +60,24 @@ To run the [`FastStream`](https://github.com/airtai/faststream) application loca
    ```bash
    ./scripts/stop_kafka_broker_locally.sh
    ```
+
+## Code Linting
+
+After making changes to the code, it's essential to ensure it adheres to coding standards. We provide a script to help you with code formatting and linting. Run the following script to automatically fix linting issues:
+
+```bash
+./scripts/lint.sh
+```
+
+## Static Analysis
+
+Static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) can help identify potential issues in your code. To run static analysis, use the following script:
+
+```bash
+./scripts/static-analysis.sh
+```
+
+If there are any static analysis errors, resolve them in your code and rerun the script until it passes successfully.
 
 ## Viewing AsyncAPI Documentation
 
