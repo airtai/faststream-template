@@ -1,75 +1,83 @@
-# FastStream Template
+# FastStream Application
 
-FastStream Template is a versatile repository that provides a solid foundation for your Python projects. It comes with a basic application, testing infrastructure, linting scripts, and various development tools to kickstart your development process. Whether you're building a new application from scratch or want to enhance an existing one, this template will save you time and help you maintain high code quality.
-
-## Features
-
-* **Basic Application**: FastStream Template includes a basic Python application as a starting point for your project. You can easily replace it with your own code.
-
-* **Testing Framework**: We've set up pytest for running unit tests. Write your tests in the tests directory and use the provided workflow for automated testing.
-
-* **Linting**: Keep your code clean and consistent with linting tools. The repository includes linting scripts and configurations for:
-
-  * mypy
-  * black
-  * ruff
-  * bandit
-
-* **Docker Support**: The included Dockerfile allows you to containerize your FastStream application. Build and run your application in a containerized environment with ease.
-
-* **Dependency Management**: All application requirements and development dependencies are specified in the `pyproject.toml` file. This includes not only your project's dependencies but also configurations for various tools like pytest, mypy, black, ruff, and bandit.
-
-* **Continuous Integration (CI)**: FastStream Template comes with three GitHub Actions workflows under the `.github/workflows` directory:
-
-  1. **Static Analysis and Testing**: This workflow consists of two jobs. The first job runs static analysis tools (mypy and bandit) to check your code for potential issues. If successful, the second job runs pytest to execute your test suite.
-
-  2. **Docker Build and Push**: This workflow automates the process of building a Docker image for your FastStream application and pushing it to the GitHub Container Registry.
-
-  3. **AsyncAPI Documentation**: The third workflow builds AsyncAPI documentation for your FastStream application and deploys it to GitHub Pages. This is useful for documenting your API and making it accessible to others.
+Application in this repository is developed using the `FastStream` framework. Below, you'll find a guide on how to get started, develop new features or bug fixes, and ensure the quality of your code through testing and linting.
 
 ## Getting Started
 
-1. **Clone the Repository**: Create your own repo based from the template like below
+To set up your development environment, follow these steps:
 
-   and Start by cloning this repository to your local machine.
+1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/faststream-template.git
-   cd faststream-template
+   git clone https://github.com/your-username/faststream-app.git
+   cd faststream-app
    ```
 
-2. **Install Dependencies**: Use pip to install project dependencies defined in `pyproject.toml`
+2. Install all development requirements using pip:
 
    ```bash
    pip install -e ".[dev]"
    ```
 
-3. **Customize the Application**: Replace the basic application in the `app` directory with your own code.
+## Development
 
-4. **Run Tests**: Execute the pytest suite to run your tests.
+The application code is located in the `app/` directory. You can add new features or fix bugs in this directory. However, remember that code changes must be accompanied by corresponding updates to the tests located in the `tests/` directory.
+
+## Running Tests
+
+Before running tests, make sure you have a Kafka Docker container running. You can start it locally using the provided script:
+
+```bash
+./scripts/start_kafka_broker_locally.sh
+```
+
+Once the Kafka container is up and running, you can execute the tests using pytest:
+
+```bash
+pytest
+```
+
+## Code Linting
+
+After making changes to the code, it's essential to ensure it adheres to coding standards. We provide a script to help you with code formatting and linting. Run the following script to automatically fix linting issues:
+
+```bash
+./scripts/lint.sh
+```
+
+## Static Analysis
+
+Static analysis tools `mypy` and `bandit` can help identify potential issues in your code. To run static analysis, use the following script:
+
+```bash
+./scripts/static-analysis.sh
+```
+
+If there are any static analysis errors, resolve them in your code and rerun the script until it passes successfully.
+
+## Contributing
+
+Once you have successfully completed all the above steps, you are ready to contribute your changes:
+
+1. Add and commit your changes:
 
    ```bash
-   pytest
+   git add .
+   git commit -m "Your commit message"
    ```
 
-5. **Lint Your Code**: Ensure your code adheres to linting standards.
+2. Push your changes to GitHub:
 
    ```bash
-   ./scripts/lint.sh
+   git push origin your-branch
    ```
 
-6. **Static Analysis and Security Checks**: Run mypy and bandit to perform static analysis and security checks on your code.
+3. Create a merge request on GitHub.
 
-   ```bash
-   ./scripts/static-analysis.sh
-   ```
+## Continuous Integration (CI)
 
-7. **Dockerize Your Application**: If you want to containerize your application, use the provided Dockerfile to build a Docker image.
+This repository is equipped with GitHub Actions that automate static analysis and pytest in the CI pipeline. Even if you forget to perform any of the required steps, CI will catch any issues before merging your changes.
 
-   ```bash
-   docker build -t my-faststream-app .
-   ```
+---
 
-8. **Push to GitHub**: Commit your changes and push them to your GitHub repository.
-
-9. **GitHub Actions**: The CI workflows are automatically triggered on pushes to the repository. Check the GitHub Actions tab for build and deployment status.
+Happy coding with FastStream Application! If you have any questions or encounter any problems, feel free to reach out to us. We appreciate your contributions and commitment to maintaining code quality.
