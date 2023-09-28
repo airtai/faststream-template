@@ -122,9 +122,49 @@ This repository has three workflows, each triggered when code is pushed:
 
 1. **Tests Workflow**: This workflow is named "Tests" and consists of two jobs. The first job runs static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) to identify potential issues in the codebase. The second job runs tests using [`pytest`](https://pytest.org/) to ensure the functionality of the application. Both jobs run simultaneously to expedite the `CI` process.
 
-2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a Docker image is built based on the provided Dockerfile. The built image is then pushed to the [**GitHub Container Registry**](https://ghcr.io), making it available for deployment or other purposes.
+2. **Build Docker Image Workflow**: This workflow is named "Build Docker Image" and has one job. In this job, a [`Docker`](https://www.docker.com/) image is built based on the provided Dockerfile. The built image is then pushed to the [**GitHub Container Registry**](https://ghcr.io), making it available for deployment or other purposes.
 
 3. **Deploy FastStream AsyncAPI Docs Workflow**: The final workflow is named "Deploy FastStream AsyncAPI Docs" and also consists of a single job. In this job, the [`AsyncAPI`](https://www.asyncapi.com/) documentation is built from the specification, and the resulting documentation is deployed to [**GitHub Pages**](https://pages.github.com/). This allows for easy access and sharing of the [`AsyncAPI`](https://www.asyncapi.com/) documentation with the project's stakeholders.
+
+## Viewing AsyncAPI Documentation Hosted at GitHub Pages
+
+After the **Deploy FastStream AsyncAPI Docs** workflow in `CI` has been successfully completed, the [`AsyncAPI`](https://www.asyncapi.com/) documentation is automatically deployed to [**GitHub Pages**](https://pages.github.com/). This provides a convenient way to access and share the documentation with project stakeholders.
+
+To view the deployed [`AsyncAPI`](https://www.asyncapi.com/) documentation, open your web browser and navigate to the following URL:
+
+```txt
+https://<username>.github.io/<repo-name>/
+```
+
+> **_NOTE:_** Replace `<username>` with your GitHub username and `<repo-name>` with the name of your repository.
+
+You will be directed to the [**GitHub Pages**](https://pages.github.com/) site where your [`AsyncAPI`](https://www.asyncapi.com/) documentation is hosted. This hosted documentation allows you to easily share your [`AsyncAPI`](https://www.asyncapi.com/) specifications with others and provides a centralized location for reviewing the [`AsyncAPI`](https://www.asyncapi.com/) documentation.
+
+## Deploying Docker Container
+
+Once the **Build Docker Image** workflow in `CI` has successfully completed, the built [`Docker`](https://www.docker.com/) image is pushed to the [**GitHub Container Registry**](https://ghcr.io). You can then deploy this image on your server by following these steps:
+
+1. Pull the [`Docker`](https://www.docker.com/) image from the [**GitHub Container Registry**](https://ghcr.io) to your server using the following command:
+
+   ```bash
+   docker pull ghcr.io/<username>/<repo-name>:latest
+   ```
+
+   > **_NOTE:_** Replace `<username>` with your GitHub username and `<repo-name>` with the name of your repository.
+
+2. After successfully pulling the image, start the [`Docker`](https://www.docker.com/) container using the following command:
+
+   ```bash
+   docker run --rm --name faststream-app --env-file /path/to/env-file ghcr.io/<username>/<repo-name>:latest
+   ```
+
+   * `--rm`: This flag removes the container once it stops running, ensuring that it doesn't clutter your system with unused containers.
+
+   * `--name faststream-app`: Assigns a name to the running container, in this case, "faststream-app".
+
+   * `--env-file /path/to/env-file`: Specifies the path to an environment file (commonly a `.env` file) that contains environment variables required by your [`FastStream`](https://github.com/airtai/faststream) application. Storing secrets and configuration in an environment file is a secure and best practice for handling sensitive information such as Kafka host, port, and authentication details.
+
+By following these steps, you can easily deploy your [`FastStream`](https://github.com/airtai/faststream) application as a [`Docker`](https://www.docker.com/) container on your server. Remember to customize the `env-file` and other environment variables as needed to suit your specific application requirements.
 
 ---
 
