@@ -1,4 +1,4 @@
-name: Build FastStream Docs
+name: Deploy FastStream AsyncAPI Docs
 on:
     push:
       branches:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   deploy_docs:
-    name: Deploy FastStream Docs to GitHub Pages
+    name: Deploy FastStream AsyncAPI Docs to GitHub Pages
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v3
