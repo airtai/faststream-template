@@ -24,7 +24,6 @@ jobs:
         run: bandit -c pyproject.toml -r app
 
   test:
-    needs: [static_analysis]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

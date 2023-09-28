@@ -4,6 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 
+version = "0.1.0"
+name = "my-service"
+
 dependencies = [
     "faststream[kafka, docs]>=0.1.5",
 ]
@@ -27,7 +30,7 @@ testing = [
     "faststream[kafka, testing]>=0.1.5",
 ]
 
-dev = ["app[lint,static-analysis,testing]"]
+dev = ["my-service[lint,static-analysis,testing]"]
 
 [tool.pytest.ini_options]
 filterwarnings =["ignore::DeprecationWarning"]
