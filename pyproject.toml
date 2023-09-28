@@ -30,7 +30,7 @@ testing = [
     "faststream[kafka, testing]>=0.1.5",
 ]
 
-dev = ["app[lint,static-analysis,testing]"]
+dev = ["my-service[lint,static-analysis,testing]"]
 
 [tool.pytest.ini_options]
 filterwarnings =["ignore::DeprecationWarning"]
