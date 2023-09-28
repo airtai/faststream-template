@@ -2,8 +2,7 @@ name: Build Docker Image
 on:
     push:
       branches:
-        - master
-        - main
+        - '*'
 
 jobs:
   build_docker:
@@ -21,6 +20,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: docker build -t ghcr.io/$GITHUB_REPOSITORY:latest .
+      - run: ./scripts/build_docker.sh $GITHUB_REPOSITORY_OWNER ${{ github.event.repository.name }}
       - name: Push built image
-        run: docker push ghcr.io/$GITHUB_REPOSITORY --all-tags
+        if: github.ref_name == 'main' || github.ref_name == 'master'
+        run: docker push ghcr.io/$GITHUB_REPOSITORY_OWNER/${{ github.event.repository.name }} --all-tags
