@@ -9,9 +9,11 @@ To set up your development environment, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/faststream-app.git
-   cd faststream-app
+   git clone https://github.com/<username>/<repo-name>.git
+   cd <repo-name>
    ```
+
+   > **_NOTE:_** Replace `<username>` with your GitHub username and `<repo-name>` with the name of your repository.
 
 2. Install all development requirements using pip:
 
@@ -30,24 +32,6 @@ Once you have updated tests, you can execute the tests using [`pytest`](https://
 ```bash
 pytest
 ```
-
-## Code Linting
-
-After making changes to the code, it's essential to ensure it adheres to coding standards. We provide a script to help you with code formatting and linting. Run the following script to automatically fix linting issues:
-
-```bash
-./scripts/lint.sh
-```
-
-## Static Analysis
-
-Static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) can help identify potential issues in your code. To run static analysis, use the following script:
-
-```bash
-./scripts/static-analysis.sh
-```
-
-If there are any static analysis errors, resolve them in your code and rerun the script until it passes successfully.
 
 ## Running FastStream Application Locally
 
@@ -78,6 +62,64 @@ To run the [`FastStream`](https://github.com/airtai/faststream) application loca
    ```bash
    ./scripts/stop_kafka_broker_locally.sh
    ```
+
+## Building and Testing Docker Image Locally
+
+If you'd like to build and test the [`Docker`](https://www.docker.com/) image locally, follow these steps:
+
+1. Run the provided script to build the [`Docker`](https://www.docker.com/) image locally. Use the following command:
+
+   ```bash
+   ./scripts/build_docker.sh <username> <repo-name>
+   ```
+
+   This script will build the [`Docker`](https://www.docker.com/) image locally with the same name as the one built in `CI`.
+
+2. Before starting the [`Docker`](https://www.docker.com/) container, ensure that a Kafka [`Docker`](https://www.docker.com/) container is running locally. You can start it using the provided script:
+
+   ```bash
+   ./scripts/start_kafka_broker_locally.sh
+   ```
+
+3. Once Kafka is up and running, you can start the local [`Docker`](https://www.docker.com/) container using the following command:
+
+   ```bash
+   docker run --rm --name faststream-app --net=host ghcr.io/<username>/<repo-name>:latest
+   ```
+
+   * `--rm`: This flag removes the container once it stops running, ensuring that it doesn't clutter your system with unused containers.
+
+   * `--name faststream-app`: Assigns a name to the running container, in this case, "faststream-app".
+
+   * `--net=host`: This flag allows the [`Docker`](https://www.docker.com/) container to share the host's network namespace.
+
+4. To stop the local [`Docker`](https://www.docker.com/) container, simply press `Ctrl+C` in your terminal.
+
+5. Finally, stop the Kafka [`Docker`](https://www.docker.com/) container by running the provided script:
+
+   ```bash
+   ./scripts/stop_kafka_broker_locally.sh
+   ```
+
+> **_NOTE:_** Replace `<username>` with your GitHub username and `<repo-name>` with the name of your repository in the above commands.
+
+## Code Linting
+
+After making changes to the code, it's essential to ensure it adheres to coding standards. We provide a script to help you with code formatting and linting. Run the following script to automatically fix linting issues:
+
+```bash
+./scripts/lint.sh
+```
+
+## Static Analysis
+
+Static analysis tools [`mypy`](https://mypy.readthedocs.io/en/stable/) and [`bandit`](https://bandit.readthedocs.io/en/latest/) can help identify potential issues in your code. To run static analysis, use the following script:
+
+```bash
+./scripts/static-analysis.sh
+```
+
+If there are any static analysis errors, resolve them in your code and rerun the script until it passes successfully.
 
 ## Viewing AsyncAPI Documentation
 
