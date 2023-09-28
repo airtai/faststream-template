@@ -4,6 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 
+version = "0.1.0"
+name = "my-service"
+
 dependencies = [
     "faststream[kafka, docs]>=0.1.5",
 ]
