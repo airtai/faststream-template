@@ -27,10 +27,11 @@ static-analysis = [
 ]
 
 testing = [
-    "faststream[kafka, testing]>=0.1.5",
+    "pytest==7.4.2",
+    "pytest-asyncio==0.21.1",
 ]
 
-dev = ["app[lint,static-analysis,testing]"]
+dev = ["my-service[lint,static-analysis,testing]"]
 
 [tool.pytest.ini_options]
 filterwarnings =["ignore::DeprecationWarning"]
