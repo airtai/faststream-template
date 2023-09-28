@@ -83,19 +83,17 @@ To run the `FastStream` application locally, follow these steps:
 
 `FastStream` framework supports `AsyncAPI` documentation. To ensure that your changes are reflected in the `AsyncAPI` documentation, follow these steps:
 
-1. Ensure you have Node.js installed locally. If not, you can download and install it from [here](https://nodejs.org/en/download/package-manager).
-
-2. Run the following script to view the `AsyncAPI` documentation:
+1. Run the following command to view the `AsyncAPI` documentation:
 
    ```bash
-   ./scripts/serve_asyncapi_docs.sh
+   faststream docs serve app.application:app
    ```
 
-   This command builds the `AsyncAPI` specification file, generates `AsyncAPI` documentation based on the specification, and serves it at `localhost:8888`.
+   This command builds the `AsyncAPI` specification file, generates `AsyncAPI` documentation based on the specification, and serves it at `localhost:8000`.
 
-3. Open your web browser and navigate to <http://localhost:8888> to view the `AsyncAPI` documentation reflecting your changes.
+2. Open your web browser and navigate to <http://localhost:8000> to view the `AsyncAPI` documentation reflecting your changes.
 
-4. To stop the `AsyncAPI` documentation server, press `Ctrl+C`.
+3. To stop the `AsyncAPI` documentation server, press `Ctrl+C`.
 
 ## Contributing
 
